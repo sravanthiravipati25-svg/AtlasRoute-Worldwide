@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.OpenApi.Models;
 using TrafficRouteOptimizer.API.Services;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
@@ -9,7 +11,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 
 // --------------------------------------------------
 // Configuration
-// Disable file watching/reloadOnChange for Render
+// Disable file watching / reloadOnChange for Render
 // --------------------------------------------------
 builder.Configuration.Sources.Clear();
 
@@ -51,7 +53,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "AtlasRoute — Intelligent Traffic Route Optimizer",
         Version = "v1",
@@ -75,18 +77,21 @@ builder.Services.AddCors(options =>
     {
         if (allowedOrigins.Length > 0)
         {
-            policy.WithOrigins(allowedOrigins)
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
+            policy
+                .WithOrigins(allowedOrigins)
+                .AllowAnyHeader()
+                .AllowAnyMethod();
         }
         else
         {
-            policy.AllowAnyOrigin()
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
+            policy
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
         }
     });
 });
+
 // --------------------------------------------------
 // Build application
 // --------------------------------------------------
@@ -106,6 +111,7 @@ app.UseSwaggerUI(c =>
 
 // --------------------------------------------------
 // CORS
+// IMPORTANT: before MapControllers()
 // --------------------------------------------------
 app.UseCors("AllowFrontend");
 
