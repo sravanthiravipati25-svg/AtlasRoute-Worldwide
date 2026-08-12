@@ -7,27 +7,48 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
                        ?? Environments.Production
 });
 
+// --------------------------------------------------
+// Configuration
+// Disable file watching/reloadOnChange for Render
+// --------------------------------------------------
+builder.Configuration.Sources.Clear();
+
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
+    .AddJsonFile(
+        "appsettings.json",
+        optional: false,
+        reloadOnChange: false)
     .AddJsonFile(
         $"appsettings.{builder.Environment.EnvironmentName}.json",
         optional: true,
         reloadOnChange: false)
     .AddEnvironmentVariables();
 
-// HTTP client for Nominatim / OSRM
+// --------------------------------------------------
+// HTTP Client
+// Nominatim / OSRM
+// --------------------------------------------------
 builder.Services.AddHttpClient<WorldRoutingService>(client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 });
 
-// Worldwide routing + dynamic graph services
+// --------------------------------------------------
+// Worldwide Routing Services
+// --------------------------------------------------
 builder.Services.AddScoped<WorldGraphService>();
 
+// --------------------------------------------------
+// Controllers
+// --------------------------------------------------
 builder.Services.AddControllers();
 
+// --------------------------------------------------
+// Swagger
+// --------------------------------------------------
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -40,7 +61,9 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// --------------------------------------------------
 // CORS
+// --------------------------------------------------
 var allowedOrigins =
     builder.Configuration
         .GetSection("Cors:AllowedOrigins")
@@ -65,8 +88,14 @@ builder.Services.AddCors(options =>
     });
 });
 
+// --------------------------------------------------
+// Build application
+// --------------------------------------------------
 var app = builder.Build();
 
+// --------------------------------------------------
+// Swagger
+// --------------------------------------------------
 app.UseSwagger();
 
 app.UseSwaggerUI(c =>
@@ -76,10 +105,22 @@ app.UseSwaggerUI(c =>
         "AtlasRoute API v1");
 });
 
+// --------------------------------------------------
+// CORS
+// --------------------------------------------------
 app.UseCors("AllowFrontend");
 
+// --------------------------------------------------
+// Authorization
+// --------------------------------------------------
 app.UseAuthorization();
 
+// --------------------------------------------------
+// Controllers
+// --------------------------------------------------
 app.MapControllers();
 
+// --------------------------------------------------
+// Start application
+// --------------------------------------------------
 app.Run();
