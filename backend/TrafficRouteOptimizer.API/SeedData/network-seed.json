@@ -1,0 +1,41 @@
+{
+  "locations": [
+    { "id": 1,  "name": "City Centre",        "latitude": 28.5700, "longitude": 77.3200 },
+    { "id": 2,  "name": "Sector 18 Market",    "latitude": 28.5690, "longitude": 77.3260 },
+    { "id": 3,  "name": "Sector 62 Tech Park", "latitude": 28.6270, "longitude": 77.3660 },
+    { "id": 4,  "name": "Botanical Garden",    "latitude": 28.5640, "longitude": 77.3340 },
+    { "id": 5,  "name": "Airport Terminal",    "latitude": 28.5000, "longitude": 77.1000 },
+    { "id": 6,  "name": "Railway Station",     "latitude": 28.5810, "longitude": 77.3120 },
+    { "id": 7,  "name": "Riverside Bridge",    "latitude": 28.5900, "longitude": 77.2900 },
+    { "id": 8,  "name": "Industrial Area",     "latitude": 28.5450, "longitude": 77.3080 },
+    { "id": 9,  "name": "University Campus",   "latitude": 28.6120, "longitude": 77.3550 },
+    { "id": 10, "name": "Stadium",             "latitude": 28.5950, "longitude": 77.3410 },
+    { "id": 11, "name": "Hospital Junction",   "latitude": 28.5560, "longitude": 77.3450 },
+    { "id": 12, "name": "Old Town",            "latitude": 28.5320, "longitude": 77.2950 }
+  ],
+  "roads": [
+    { "from": 1, "to": 2,  "name": "MG Road",             "distanceKm": 3.2,  "baseTimeMin": 8,  "congestion": "Medium", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 1, "to": 6,  "name": "Station Link Road",   "distanceKm": 2.5,  "baseTimeMin": 7,  "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 1, "to": 7,  "name": "Riverside Ave",       "distanceKm": 4.0,  "baseTimeMin": 10, "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 2, "to": 3,  "name": "Expressway North",    "distanceKm": 14.0, "baseTimeMin": 16, "congestion": "Medium", "toll": 60,  "closed": false, "bidirectional": true },
+    { "from": 2, "to": 4,  "name": "Garden Road",         "distanceKm": 2.8,  "baseTimeMin": 7,  "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 2, "to": 10, "name": "Stadium Way",         "distanceKm": 5.5,  "baseTimeMin": 11, "congestion": "High",   "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 3, "to": 9,  "name": "University Link",     "distanceKm": 6.0,  "baseTimeMin": 10, "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 3, "to": 10, "name": "North Connector",     "distanceKm": 7.5,  "baseTimeMin": 13, "congestion": "Medium", "toll": 20,  "closed": false, "bidirectional": true },
+    { "from": 4, "to": 8,  "name": "South Bypass",        "distanceKm": 6.5,  "baseTimeMin": 12, "congestion": "Medium", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 4, "to": 11, "name": "Hospital Road",       "distanceKm": 3.5,  "baseTimeMin": 8,  "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 5, "to": 8,  "name": "Airport Expressway",  "distanceKm": 18.0, "baseTimeMin": 20, "congestion": "Low",    "toll": 120, "closed": false, "bidirectional": true },
+    { "from": 5, "to": 12, "name": "Old Airport Road",    "distanceKm": 15.5, "baseTimeMin": 24, "congestion": "High",   "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 6, "to": 7,  "name": "North Bridge Rd",     "distanceKm": 3.0,  "baseTimeMin": 8,  "congestion": "Medium", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 6, "to": 10, "name": "Central Ave",         "distanceKm": 4.8,  "baseTimeMin": 9,  "congestion": "Severe", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 7, "to": 9,  "name": "Riverside Highway",   "distanceKm": 9.0,  "baseTimeMin": 11, "congestion": "Low",    "toll": 40,  "closed": false, "bidirectional": true },
+    { "from": 8, "to": 12, "name": "Industrial Road",     "distanceKm": 5.0,  "baseTimeMin": 11, "congestion": "Medium", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 8, "to": 11, "name": "Factory Link",        "distanceKm": 4.2,  "baseTimeMin": 9,  "congestion": "High",   "toll": 0,   "closed": true,  "bidirectional": true },
+    { "from": 9, "to": 10, "name": "Campus Road",         "distanceKm": 3.8,  "baseTimeMin": 7,  "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 10, "to": 11, "name": "East Ring Road",     "distanceKm": 6.2,  "baseTimeMin": 12, "congestion": "Medium", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 11, "to": 12, "name": "South Ring Road",    "distanceKm": 7.0,  "baseTimeMin": 14, "congestion": "Medium", "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 2, "to": 6,  "name": "Market Cross St",     "distanceKm": 2.2,  "baseTimeMin": 6,  "congestion": "High",   "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 4, "to": 9,  "name": "Botanical Link",      "distanceKm": 8.5,  "baseTimeMin": 14, "congestion": "Low",    "toll": 0,   "closed": false, "bidirectional": true },
+    { "from": 5, "to": 1,  "name": "Airport Direct Toll", "distanceKm": 22.0, "baseTimeMin": 18, "congestion": "Low",    "toll": 150, "closed": false, "bidirectional": true }
+  ]
+}

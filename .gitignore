@@ -1,0 +1,49 @@
+# =========================
+# Node / React / Vite
+# =========================
+
+node_modules/
+dist/
+.vite/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+
+# =========================
+# .NET
+# =========================
+
+bin/
+obj/
+
+# Visual Studio
+.vs/
+
+# User-specific files
+*.user
+*.suo
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+
+
+# =========================
+# OS generated files
+# =========================
+
+.DS_Store
+Thumbs.db
+
+
+# =========================
+# Build / coverage
+# =========================
+
+coverage/
