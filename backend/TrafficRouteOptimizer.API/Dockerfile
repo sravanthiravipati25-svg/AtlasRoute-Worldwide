@@ -15,7 +15,8 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-ENV ASPNETCORE_URLS=http://+:10000
+# Render provides the PORT environment variable.
+ENV ASPNETCORE_URLS=http://+:${PORT}
 
 EXPOSE 10000
 
